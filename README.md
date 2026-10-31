@@ -8,7 +8,7 @@ If you're looking for the PC version, I am currently working on it.
 
 ## Download
 
-Get `OffTheReel-x.x.apk` from [Releases](../../releases/latest) and install it.
+Get `OffTheReel-x.x.apk` from [Releases](https://github.com/christianjrodriguez2002/OffTheReel-Android/releases/latest) and install it.
 
 ## Use
 
@@ -19,12 +19,21 @@ The first time, it asks for storage access so it can save to your Download folde
 
 Videos go to `Download/OffTheReel`, in a folder for each channel. Tick **Extras** on a link to also save its thumbnail, description and subtitles. Change whether new links start with Extras on in **Settings**.
 
+Pick the video quality under the Video and Audio switch. MP3s are always saved at the highest quality.
+
+## Library and watching channels
+
+Tap the shelf icon at the top to open the **Library**: everything you've saved, newest first. Tap anything to play it.
+
+Tap **Watch** on a channel link and OffTheReel checks that channel once a day on Wi-Fi and saves new uploads on its own. Watched channels are listed in the Library, where you can stop watching them.
+
 ## Good to know
 
 - Downloads keep going with the screen off. Stop them from the notification.
 - Stopping is safe. Download again later and it continues where it left off.
 - Adding a channel again only downloads its new videos.
-- It keeps its downloader up to date on its own.
+- If you copy a YouTube link and then open the app, it offers to add it.
+- It keeps its downloader up to date on its own, and tells you when a new version of OffTheReel is out.
 
 ## Disclaimer
 
@@ -36,10 +45,10 @@ OffTheReel is not affiliated with, endorsed by or sponsored by YouTube or Google
 
 - [yt-dlp](https://github.com/yt-dlp/yt-dlp), the downloader (Unlicense)
 - [youtubedl-android](https://github.com/yausername/youtubedl-android), which runs yt-dlp on Android (GPL-3.0)
-- [FFmpeg](https://ffmpeg.org), for merging and converting (GPL)
+- [FFmpeg](https://ffmpeg.org/), for merging and converting (GPL)
 - [QuickJS](https://bellard.org/quickjs/), which yt-dlp needs for YouTube (MIT)
 - [Archivo](https://github.com/Omnibus-Type/Archivo), the typeface (SIL Open Font License, see `licenses/Archivo-OFL.txt`)
 
 ## License
 
-OffTheReel for Android is released under the [GNU General Public License v3.0](LICENSE).
+OffTheReel for Android is released under the [GNU General Public License v3.0](https://github.com/christianjrodriguez2002/OffTheReel-Android/blob/main/LICENSE).
