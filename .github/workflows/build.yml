@@ -1,0 +1,57 @@
+name: Build OffTheReel for Android
+
+on:
+  push:
+    paths:
+      - 'OffTheReel.zip'
+      - '.github/workflows/build.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Unzip project
+        run: |
+          ls -la
+          rm -rf build-src && mkdir build-src
+          unzip -q OffTheReel.zip -d build-src
+          dir=$(dirname "$(find build-src -name settings.gradle.kts | head -1)")
+          echo "Project folder: $dir"
+          echo "PROJECT_DIR=$dir" >> "$GITHUB_ENV"
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: gradle/actions/setup-gradle@v5
+        with:
+          gradle-version: '8.9'
+
+      - name: Build release APK
+        working-directory: ${{ env.PROJECT_DIR }}
+        run: gradle assembleRelease --no-daemon --stacktrace
+
+      - name: Name the APK
+        run: |
+          VERSION=$(grep -oP 'versionName\s*=\s*"\K[^"]+' "$PROJECT_DIR/app/build.gradle.kts")
+          echo "VERSION=$VERSION" >> "$GITHUB_ENV"
+          cp "$PROJECT_DIR/app/build/outputs/apk/release/app-release.apk" "OffTheReel-$VERSION.apk"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: OffTheReel-apk
+          path: OffTheReel-*.apk
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ env.VERSION }}-${{ github.run_number }}
+          name: OffTheReel ${{ env.VERSION }}
+          body_path: ${{ env.PROJECT_DIR }}/RELEASE_NOTES.md
+          files: OffTheReel-*.apk
