@@ -4,7 +4,7 @@ Save videos, playlists and whole channels from YouTube to your phone so you alwa
 
 Made by Roki Rodriguez.
 
-If you're looking for the PC version see [OffTheReel for Windows](../../../OffTheReel-Windows).
+If you're looking for the PC version, it will be released soon.
 
 ## Download
 
