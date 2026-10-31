@@ -12,7 +12,7 @@ Get `OffTheReel-x.x.apk` from [Releases](../../releases/latest) and install it.
 
 ## Use
 
-1. In the YouTube app, tap **Share** on a video, playlist or channel and pick **OffTheReel**. You can also paste a link.
+1. In the YouTube app, tap **Share** on a video, playlist or channel and pick **OffTheReel**. You can also paste a link in the OffTheReel app.
 2. Tap the reel to download. Tap it again to stop.
 
 The first time, it asks for storage access so it can save to your Download folder.
